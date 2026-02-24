@@ -66,6 +66,8 @@ Open `http://localhost:3001` on the Pi's browser in kiosk mode.
 
 ## DHT11 Wiring
 
+![DHT11 wiring diagram](docs/dht11-wiring.png)
+
 | DHT11 Pin | Raspberry Pi |
 |---|---|
 | VCC | 3.3V (Pin 1) |
