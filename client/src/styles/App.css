@@ -1,0 +1,34 @@
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-areas:
+    "clock weather"
+    "sensor clothing"
+    "sensor clothing";
+  gap: 1.25rem;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.area-clock { grid-area: clock; align-self: start; }
+.area-weather { grid-area: weather; align-self: start; }
+.area-sensor { grid-area: sensor; }
+.area-clothing { grid-area: clothing; }
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "clock"
+      "weather"
+      "sensor"
+      "clothing";
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+}

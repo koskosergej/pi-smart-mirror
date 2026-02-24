@@ -1,0 +1,68 @@
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.weather-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.weather-temp-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-temp {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.weather-feels {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.weather-location {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 0.25rem;
+}
+
+.weather-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+}
+
+.weather-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.weather-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.meta-icon {
+  font-size: 0.9rem;
+}
