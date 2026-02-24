@@ -1,11 +1,15 @@
 import { SensorReading, WeatherData, ClothingRecommendation } from '../types';
 
 export function getRecommendation(
-  sensorData: SensorReading,
+  sensorData: SensorReading | null,
   weatherData: WeatherData
 ): ClothingRecommendation {
-  const effectiveTemp = (sensorData.temperature + weatherData.feelsLike) / 2;
-  const humidity = Math.max(sensorData.humidity, weatherData.humidity);
+  const effectiveTemp = sensorData
+    ? (sensorData.temperature + weatherData.feelsLike) / 2
+    : weatherData.feelsLike;
+  const humidity = sensorData
+    ? Math.max(sensorData.humidity, weatherData.humidity)
+    : weatherData.humidity;
   const windSpeed = weatherData.windSpeed;
   const condition = weatherData.conditionMain?.toLowerCase() ?? '';
   const conditionId = weatherData.conditionId ?? 800;

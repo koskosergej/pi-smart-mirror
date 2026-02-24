@@ -2,7 +2,6 @@ export interface SensorReading {
   temperature: number;
   humidity: number;
   timestamp: string;
-  mock: boolean;
 }
 
 export interface WeatherData {
@@ -26,6 +25,6 @@ export interface ClothingRecommendation {
 }
 
 export interface ClothingResponse extends ClothingRecommendation {
-  sensor: SensorReading;
+  sensor: SensorReading | null;
   weather: WeatherData;
 }

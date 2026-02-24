@@ -1,8 +1,8 @@
 export interface SensorReading {
-  temperature: number;
-  humidity: number;
-  timestamp: string;
-  mock: boolean;
+  available: boolean;
+  temperature?: number;
+  humidity?: number;
+  timestamp?: string;
 }
 
 export interface WeatherData {
@@ -23,6 +23,6 @@ export interface ClothingData {
   outfit: string[];
   note: string;
   icon: string;
-  sensor: SensorReading;
+  sensor: SensorReading | null;
   weather: WeatherData;
 }

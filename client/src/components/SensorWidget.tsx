@@ -39,31 +39,37 @@ export default function SensorWidget({ data, loading }: Props): React.JSX.Elemen
 
   if (!data) return null;
 
+  if (!data.available) {
+    return (
+      <div className="glass-card sensor-card">
+        <div className="label">Room Sensor — DHT11</div>
+        <div className="sensor-unavailable">Data not available</div>
+      </div>
+    );
+  }
+
   return (
     <div className="glass-card sensor-card">
-      <div className="label">
-        Room Sensor — DHT11
-        {data.mock && <span className="mock-badge">Mock</span>}
-      </div>
+      <div className="label">Room Sensor — DHT11</div>
 
       <div className="sensor-grid">
         <div className="sensor-item">
           <div className="sensor-value">
             <span className="sensor-icon">🌡️</span>
-            <span className="sensor-number">{data.temperature.toFixed(1)}</span>
+            <span className="sensor-number">{data.temperature!.toFixed(1)}</span>
             <span className="sensor-unit">°C</span>
           </div>
-          <TempBar value={data.temperature} />
+          <TempBar value={data.temperature!} />
           <div className="sensor-label">Temperature</div>
         </div>
 
         <div className="sensor-item">
           <div className="sensor-value">
             <span className="sensor-icon">💧</span>
-            <span className="sensor-number">{data.humidity.toFixed(1)}</span>
+            <span className="sensor-number">{data.humidity!.toFixed(1)}</span>
             <span className="sensor-unit">%</span>
           </div>
-          <HumidityBar value={data.humidity} />
+          <HumidityBar value={data.humidity!} />
           <div className="sensor-label">Humidity</div>
         </div>
       </div>

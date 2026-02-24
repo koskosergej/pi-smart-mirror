@@ -39,10 +39,14 @@ export default function ClothingWidget({ data, loading }: Props): React.JSX.Elem
         </ul>
       )}
 
-      {data.sensor && data.weather && (
+      {data.weather && (
         <div className="clothing-meta">
-          <span>Room {data.sensor.temperature.toFixed(1)}°C</span>
-          <span className="meta-divider">·</span>
+          {data.sensor?.temperature != null && (
+            <>
+              <span>Room {data.sensor.temperature.toFixed(1)}°C</span>
+              <span className="meta-divider">·</span>
+            </>
+          )}
           <span>Outside {data.weather.temperature}°C</span>
           <span className="meta-divider">·</span>
           <span>{data.weather.description}</span>

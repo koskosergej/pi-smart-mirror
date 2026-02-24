@@ -4,7 +4,12 @@ import { getLatestReading } from '../services/sensorService';
 const router = Router();
 
 router.get('/', (_req: Request, res: Response) => {
-  res.json(getLatestReading());
+  const reading = getLatestReading();
+  if (!reading) {
+    res.json({ available: false });
+    return;
+  }
+  res.json({ available: true, ...reading });
 });
 
 export default router;

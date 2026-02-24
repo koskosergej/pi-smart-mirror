@@ -67,3 +67,10 @@
   color: var(--text-muted);
   border-top: 1px solid var(--border);
 }
+
+.sensor-unavailable {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
