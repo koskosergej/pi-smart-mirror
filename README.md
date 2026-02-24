@@ -46,14 +46,20 @@ cd client && npm install && npm run dev
 
 Open `http://localhost:5173` in your browser.
 
+> **Non-Pi hardware (macOS/Linux):** `node-dht-sensor` requires Raspberry Pi GPIO to compile.
+> Install with `--ignore-scripts` to skip native compilation — the server falls back to mock sensor data automatically.
+> ```bash
+> cd server && npm install --ignore-scripts && npm run dev
+> ```
+
 ### 3. Run on Raspberry Pi (production)
 
 ```bash
 # Build frontend
 cd client && npm install && npm run build
 
-# Start server (serves both API + React build)
-cd server && npm install && NODE_ENV=production node src/index.js
+# Compile and start server (serves both API + React build)
+cd server && npm install && npm run build && NODE_ENV=production node dist/index.js
 ```
 
 Open `http://localhost:3001` on the Pi's browser in kiosk mode.
